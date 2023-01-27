@@ -237,9 +237,11 @@ penguins %>%
 :::
 
 
-**Answering Our Questions**
+Using the filter(), we were able to filter out the data by sex (categorical variable). We also filtered the mass (numerical variable). We also filtered by island.
 
-Most of our questions involve summarizing data, and perhaps summarizing over groups. We can summarize data using the `summarize()` function, and group data using `group_by()`.
+### **Answering Our Questions**
+
+Most of our questions involve summarizing data, and perhaps summarizing over groups. We can summarize data using the `summarize()` function, and group data using `group_by()`. Here we asked several questions, perhaps what a biologist would ask in order to find out more about a certain species of organisms.
 
 ### Let's find the average flipper length.
 
@@ -297,6 +299,8 @@ penguins %>%
 :::
 
 
+Using summarize(), we were able to calculate the average mean of the flipper length of the penguins. By using filter and summarize, we calculated the average flipper length of just the Gentoo species of Penguins. Finally using group, we categorized the average flipper length of all three species in a table.
+
 ### How many of each species do we have?
 
 
@@ -319,6 +323,8 @@ penguins %>%
 :::
 :::
 
+
+Here, using count(), we got the number of each species of penguins. There are 33 Gentoo penguins, 9 Adelie and 2 Chinstraps.
 
 ### Let's find the number of male and female penguins.
 
@@ -365,6 +371,8 @@ penguins %>%
 :::
 :::
 
+
+Using #count(sex), we got the total numbers of female and male penguins. The number of males are higher than females. Also, using #group_by(species), we found out the number of males and females in each of the species.
 
 We can use a function called `mutate()` to add new columns to our data set.
 
@@ -413,6 +421,8 @@ penguins %>%
 :::
 
 
+Here, we got the average ratio of bill length to the bill depth. We used #mutate to make a different column for the data set. We got a mean and a median of the average bill length to bill depth ratio for all the species and each species as well respectively.
+
 ### Average body mass by year
 
 
@@ -436,6 +446,8 @@ penguins %>%
 :::
 :::
 
+
+Using #summarize, we got the average body mass for 2007, 2008 and 2009. 2007 had the highest average body mass.
 
 ## Data Visualization
 
@@ -479,7 +491,7 @@ penguins %>%
     :::
 
 
-We will now look at the distribution of species.
+## We will now look at the distribution of species.
 
 
 ::: {.cell}
@@ -498,7 +510,9 @@ penguins%>%
 :::
 
 
-Let's make a scatter plot to see if bill length is correlated with bill depth.
+Using #geom_bar, we constructed a bar graph to show the numbers of the species of the penguins. Gentoo has the highest number of species in this data set.
+
+## Let's make a scatter plot to see if bill length is correlated with bill depth.
 
 
 ::: {.cell}
@@ -535,9 +549,11 @@ Warning in max(ids, na.rm = TRUE): no non-missing arguments to max; returning
 :::
 
 
-A Final Question
+Here, we made a scatterplot of the bill length and bill depth of each of the penguins. There is not enough data on the Chinstrap penguins so there is not much scatter points on the graph. The scatterplot showed a correlation between the bill lenght and the bill depth. They seem to be directly proportional.
 
-We will find if the average bill length of a penguin exceeds 45mm or not.
+### A Final Question
+
+### We will find if the average bill length of a penguin exceeds 45mm or not.
 
 
 ::: {.cell}
@@ -576,3 +592,6 @@ mean of x
 ```
 :::
 :::
+
+
+First we found out the average bill length. Then we had a hypothesis of whether the bill length of a penguin exceeded 45mm or not. Using confident interval and a T-test, the alternative hypothesis came out to be true. The null hypothesis was rejected. The average bill length of a penguin did exceed 45mm.

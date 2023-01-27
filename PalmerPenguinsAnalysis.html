@@ -297,8 +297,11 @@ dbl (5): bill_length_mm, bill_depth_mm, flipper_length_mm, body_mass_g, year
 # … with abbreviated variable names ¹​flipper_length_mm, ²​body_mass_g</code></pre>
 </div>
 </div>
-<p><strong>Answering Our Questions</strong></p>
-<p>Most of our questions involve summarizing data, and perhaps summarizing over groups. We can summarize data using the <code>summarize()</code> function, and group data using <code>group_by()</code>.</p>
+<p>Using the filter(), we were able to filter out the data by sex (categorical variable). We also filtered the mass (numerical variable). We also filtered by island.</p>
+<section id="answering-our-questions" class="level3">
+<h3 class="anchored" data-anchor-id="answering-our-questions"><strong>Answering Our Questions</strong></h3>
+<p>Most of our questions involve summarizing data, and perhaps summarizing over groups. We can summarize data using the <code>summarize()</code> function, and group data using <code>group_by()</code>. Here we asked several questions, perhaps what a biologist would ask in order to find out more about a certain species of organisms.</p>
+</section>
 <section id="lets-find-the-average-flipper-length." class="level3">
 <h3 class="anchored" data-anchor-id="lets-find-the-average-flipper-length.">Let’s find the average flipper length.</h3>
 <div class="cell">
@@ -334,6 +337,7 @@ dbl (5): bill_length_mm, bill_depth_mm, flipper_length_mm, body_mass_g, year
 3 Gentoo                  218.</code></pre>
 </div>
 </div>
+<p>Using summarize(), we were able to calculate the average mean of the flipper length of the penguins. By using filter and summarize, we calculated the average flipper length of just the Gentoo species of Penguins. Finally using group, we categorized the average flipper length of all three species in a table.</p>
 </section>
 <section id="how-many-of-each-species-do-we-have" class="level3">
 <h3 class="anchored" data-anchor-id="how-many-of-each-species-do-we-have">How many of each species do we have?</h3>
@@ -349,6 +353,7 @@ dbl (5): bill_length_mm, bill_depth_mm, flipper_length_mm, body_mass_g, year
 3 Gentoo       33</code></pre>
 </div>
 </div>
+<p>Here, using count(), we got the number of each species of penguins. There are 33 Gentoo penguins, 9 Adelie and 2 Chinstraps.</p>
 </section>
 <section id="lets-find-the-number-of-male-and-female-penguins." class="level3">
 <h3 class="anchored" data-anchor-id="lets-find-the-number-of-male-and-female-penguins.">Let’s find the number of male and female penguins.</h3>
@@ -380,6 +385,7 @@ dbl (5): bill_length_mm, bill_depth_mm, flipper_length_mm, body_mass_g, year
 6 Gentoo    male      20</code></pre>
 </div>
 </div>
+<p>Using #count(sex), we got the total numbers of female and male penguins. The number of males are higher than females. Also, using #group_by(species), we found out the number of males and females in each of the species.</p>
 <p>We can use a function called <code>mutate()</code> to add new columns to our data set.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>penguins_with_ratio <span class="ot">&lt;-</span> penguins <span class="sc">%&gt;%</span></span>
@@ -411,6 +417,7 @@ dbl (5): bill_length_mm, bill_depth_mm, flipper_length_mm, body_mass_g, year
 3 Gentoo                   3.17                  3.13</code></pre>
 </div>
 </div>
+<p>Here, we got the average ratio of bill length to the bill depth. We used #mutate to make a different column for the data set. We got a mean and a median of the average bill length to bill depth ratio for all the species and each species as well respectively.</p>
 </section>
 <section id="average-body-mass-by-year" class="level3">
 <h3 class="anchored" data-anchor-id="average-body-mass-by-year">Average body mass by year</h3>
@@ -427,6 +434,7 @@ dbl (5): bill_length_mm, bill_depth_mm, flipper_length_mm, body_mass_g, year
 3  2009          4518.</code></pre>
 </div>
 </div>
+<p>Using #summarize, we got the average body mass for 2007, 2008 and 2009. 2007 had the highest average body mass.</p>
 </section>
 </section>
 <section id="data-visualization" class="level2">
@@ -460,7 +468,9 @@ dbl (5): bill_length_mm, bill_depth_mm, flipper_length_mm, body_mass_g, year
 </div>
 </div></li>
 </ul>
-<p>We will now look at the distribution of species.</p>
+</section>
+<section id="we-will-now-look-at-the-distribution-of-species." class="level2">
+<h2 class="anchored" data-anchor-id="we-will-now-look-at-the-distribution-of-species.">We will now look at the distribution of species.</h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>penguins<span class="sc">%&gt;%</span></span>
 <span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>()<span class="sc">+</span></span>
@@ -471,7 +481,10 @@ dbl (5): bill_length_mm, bill_depth_mm, flipper_length_mm, body_mass_g, year
 <p><img src="PalmerPenguinsAnalysis_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
-<p>Let’s make a scatter plot to see if bill length is correlated with bill depth.</p>
+<p>Using #geom_bar, we constructed a bar graph to show the numbers of the species of the penguins. Gentoo has the highest number of species in this data set.</p>
+</section>
+<section id="lets-make-a-scatter-plot-to-see-if-bill-length-is-correlated-with-bill-depth." class="level2">
+<h2 class="anchored" data-anchor-id="lets-make-a-scatter-plot-to-see-if-bill-length-is-correlated-with-bill-depth.">Let’s make a scatter plot to see if bill length is correlated with bill depth.</h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>penguins<span class="sc">%&gt;%</span></span>
 <span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
@@ -491,8 +504,12 @@ dbl (5): bill_length_mm, bill_depth_mm, flipper_length_mm, body_mass_g, year
 <p><img src="PalmerPenguinsAnalysis_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
-<p>A Final Question</p>
-<p>We will find if the average bill length of a penguin exceeds 45mm or not.</p>
+<p>Here, we made a scatterplot of the bill length and bill depth of each of the penguins. There is not enough data on the Chinstrap penguins so there is not much scatter points on the graph. The scatterplot showed a correlation between the bill lenght and the bill depth. They seem to be directly proportional.</p>
+<section id="a-final-question" class="level3">
+<h3 class="anchored" data-anchor-id="a-final-question">A Final Question</h3>
+</section>
+<section id="we-will-find-if-the-average-bill-length-of-a-penguin-exceeds-45mm-or-not." class="level3">
+<h3 class="anchored" data-anchor-id="we-will-find-if-the-average-bill-length-of-a-penguin-exceeds-45mm-or-not.">We will find if the average bill length of a penguin exceeds 45mm or not.</h3>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>penguins<span class="sc">%&gt;%</span></span>
 <span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">avg_bill_length =</span> <span class="fu">mean</span>(bill_length_mm))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -517,6 +534,8 @@ mean of x
  46.37045 </code></pre>
 </div>
 </div>
+<p>First we found out the average bill length. Then we had a hypothesis of whether the bill length of a penguin exceeded 45mm or not. Using confident interval and a T-test, the alternative hypothesis came out to be true. The null hypothesis was rejected. The average bill length of a penguin did exceed 45mm.</p>
+</section>
 </section>
 
 </main>
